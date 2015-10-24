@@ -2,24 +2,24 @@
 
 
 %include packages
-\usepackage{graphicx}
-\usepackage{hyperref}
-\usepackage[absolute]{textpos}
 \usepackage{fontspec}
-
-%include the usecases package
+\usepackage{exus}
 \usepackage{usecases}
 
 
+% Document Variables
+\newcommand{\doctitle}{Document Title}
+\newcommand{\version}{v0.1}
+\newcommand{\exusdepartment}{Web \& Mobile Business Unit}
+
 \begin{document}
 \setmainfont{Calibri}
-\begin{textblock}{0}(-0.38,0)
-\includegraphics[scale=1]{images/header.png} 
-\end{textblock}
+
+\addexusfrontpage{\exusdepartment}{\doctitle \space \version}{Customer}{Athens}
+
+\addexusheaderfooter{\doctitle}{\exusdepartment}
 
 
-
-\null\newpage
 
 \begin{usecase}
 
