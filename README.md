@@ -1,1 +1,1 @@
-# ExusSpecDocTemplate
+# Exus LaTeX Docs
