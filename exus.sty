@@ -1,0 +1,74 @@
+%% Exus Corporate Template
+%% Created by Iason Dimitrakopoulos (http://www.paragonium.com)
+%% Downloadable at: https://github.com/idimitrakopoulos/ExusSpecDocTemplate/blob/master/exus.sty
+%% Date Modified: 22/10/2014
+
+\ProvidesPackage{exus}
+\RequirePackage{xcolor}
+
+% Required packages
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage[absolute]{textpos}
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+
+\fancypagestyle{frontpagestyle}{
+	\renewcommand{\headrulewidth}{0pt}%
+	\lhead{}
+	\chead{}
+	\rhead{}
+	\lfoot{}
+	\cfoot{}
+	\rfoot{}
+}
+\thispagestyle{frontpagestyle}
+
+
+% Define Exus red color
+\definecolor{exusred}{HTML}{EF3F4D}
+
+\newcommand\addexusfrontpage[4] { 
+% Graphic Header
+\begin{textblock}{0}(-0.38,0)
+	\includegraphics[scale=1]{images/header.png} 
+\end{textblock}
+
+% Department
+\begin{textblock}{30}(3.65,5)
+	\Huge \textcolor{exusred}{\textbf{#1}}
+\end{textblock}
+
+% Document Title
+\begin{textblock}{64}(3.2,12)
+	\Huge \textcolor{exusred}{\textbf{[}}
+	#2
+	\Huge \textcolor{exusred}{\textbf{]}}	
+\end{textblock}
+
+% Customer
+\begin{textblock}{30}(3.2,12.7)
+	\LARGE \textcolor{exusred}{\textbf{#3}}
+\end{textblock}
+
+% Place, Date
+\begin{textblock}{30}(3.2,13.5)
+	\Large {\textbf{#4, \today}}
+\end{textblock}
+
+
+\pagenumbering{gobble}
+\null\newpage
+\pagenumbering{arabic}}
+
+
+\newcommand\addexusheaderfooter[2]{ 
+	\renewcommand{\headrulewidth}{0pt}%
+	\lhead{\includegraphics[height=5mm]{images/logo.png} \Huge \textcolor{exusred}{|}\normalsize \raisebox{0.6ex}[0pt][0pt]{#1}}
+	\chead{}
+	\rhead{}
+	\lfoot{\raisebox{0.6ex}[0pt][0pt]{\textbf{\thepage}} \Huge \textcolor{exusred}{|} \normalsize \raisebox{0.6ex}[0pt][0pt]{#2}}
+	\cfoot{}
+	\rfoot{}
+}
