@@ -1,8 +1,9 @@
-\documentclass[a4paper, 10pt, oneside]{article}
+\documentclass[a4paper,10pt,oneside,table,pdftex,dvipsnames]{report}
 
 
 %include packages
 \usepackage{fontspec}
+\usepackage{soul}
 \usepackage{ExusCorporateTemplate}
 \usepackage{ExusSpecificationsTemplate}
 
@@ -12,21 +13,56 @@
 \newcommand{\version}{v0.1}
 \newcommand{\exusdepartment}{Web \& Mobile Business Unit}
 
+
 \begin{document}
 \setmainfont{Calibri}
+
 
 \addexusfrontpage{\exusdepartment}{\doctitle \space \version}{Customer}{Athens}
 
 \addexusheaderfooter{\doctitle}{\exusdepartment}
 
+\tableofcontents
+
+\leavevmode \newline
+
+This document has been officially approved for the specific project, and accurately reflects the current understanding of requirements based on the provided business, system functional \& non-functional requirements. 
+\\\\
+Following approval of this document, requirement changes will be governed by the project’s change management process, including impact analysis, appropriate reviews and approvals.
+
+
+
+
+
+\chapter{Overview}
+\section{Purpose}
+
+This document outlines the Business, System, Functional \& Non-Functional requirements that will be used to develop the described solution. 
+\\\\
+The primary audience of this document are Business and Technical stakeholders in order to verify that their requirements have been documented accurately and completely.
+\\\\
+This will be the same document that will be passed on to development and quality assurance teams for implementation. It will be used as a reference for developing code, test plans, test cases and as a definition of done in order to verify that all mentioned requirements are met.
+
+
+\section{Scope}
+
+\hl{Briefly describe project’s functional (new features, improvements to existing features, integrations with other systems, migrations), and tangible deliverables (source code, documentation, test cases/plan, evidences).
+\\\\
+e.g. As a (user), I can (do something) so that (I receive some benefit)}
+
+
+\chapter{Functional Requirements}
+\section{Use Cases}
+
+\subsection{UC1}
 
 
 \begin{usecase}
 
-\addtitle{Name}{eTopup - Pay via Paypal} 
+\addtitle{Use Case:}{eTopup - Pay via Paypal} 
 
 %Scope: the system under design
-\addfield{Scope:}{System-wide}
+\addfield{ID:}{UC1}
 
 %Level: "user-goal" or "subfunction"
 \addfield{Level:}{User-goal}
@@ -88,6 +124,7 @@
 %\addfield{Open Issues:}{}
 
 \end{usecase}
+
 
 \end{document}
 
