@@ -18,12 +18,12 @@
 \usepackage{multirow}
 \usepackage{longtable}
 
+\newcommand\tabularhead{\begin{longtable}{lp{8.9cm}}}
+
 %-------------------------------------------------------------------------------
 %                \addtitle command: add the title of the use case
 %-------------------------------------------------------------------------------
 \newcommand\addtitle[2]{\hline \\ [-1.5ex] \textbf{#1} &\textbf{#2}\\ [1ex] \hline \\ [-1.5ex]}
-\newcommand\tabularhead{\begin{longtable}{lp{8.9cm}}
-}
 
 %-------------------------------------------------------------------------------
 %                \addfield command: add a property of the use case
@@ -57,8 +57,83 @@
     	\vspace{1.5ex}
     \end{minipage}\\ [1ex] \hline \\ [-1.5ex] }
 
+
+%-------------------------------------------------------------------------------
+%                \additemizedsubfield command: add a subfield with an item list
+%-------------------------------------------------------------------------------
+
+\newcommand\additemizedsubfield[3]{
+	\item[#1] #2:
+		\begin{enumerate}
+			#3
+		\end{enumerate}
+}
+
 %-------------------------------------------------------------------------------
 %                Definition of the use case environment
 %-------------------------------------------------------------------------------
-\newenvironment{usecase}{\tabularhead}
+\newenvironment{usecase}
+{\tabularhead }
 {\end{longtable}}
+
+% Helper commands
+\newcommand\ucid[1]{
+	\addtitle{ID:}{#1}
+}
+\newcommand\ucversion[1]{
+	\addfield{Version:}{#1}
+}
+\newcommand\ucname[1]{
+	\addfield{Name:}{#1}
+}
+\newcommand\ucdescription[1]{
+	\addfield{Description:}{#1}
+}
+\newcommand\ucactors[1]{
+	\additemizedfield{Actor(s):}{#1}
+}
+\newcommand\uctriggers[1]{
+	\additemizedfield{Trigger(s):}{#1}
+}
+\newcommand\ucpreconditions[1]{
+	\additemizedfield{Precondition(s):}{#1}
+}
+\newcommand\ucpostconditions[1]{
+	\additemizedfield{Postcondition(s):}{#1}
+}
+\newcommand\ucmainflow[1]{
+	\addscenario{Main Success Flow:}{#1}
+}
+\newcommand\ucextflows[1]{
+	\addscenario{Extension Flows:}{#1}
+}
+\newcommand\ucerrflows[1]{
+	\addscenario{Error Flows:}{#1}
+}
+\newcommand\ucincludes[1]{
+	\additemizedfield{Includes:}{#1}
+}
+\newcommand\ucspecialreqs[1]{
+	\additemizedfield{Special Requirements:}{#1}
+}
+\newcommand\ucassumptions[1]{
+	\additemizedfield{Assumptions:}{#1}
+}
+\newcommand\ucnotes[1]{
+	\additemizedfield{Notes \& Issues:}{#1}
+}
+\newcommand\ucfutureconsiderations[1]{
+	\additemizedfield{Future Considerations:}{#1}
+}
+
+\newcommand\uc[5]{
+	\tabularhead
+	\addfield{ID:}{#1}
+	\addfield{Version:}{v#2}	
+	\addtitle{Use Case:}{#3}
+	\addfield{Description:}{#4}	
+	\additemizedfield{Actors:}{#5}
+	
+	\end{longtable}
+
+}

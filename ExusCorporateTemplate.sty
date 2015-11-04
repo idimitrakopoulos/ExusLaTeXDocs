@@ -6,7 +6,7 @@
 
 % Required packages
 \usepackage{graphicx}
-\usepackage{hyperref}
+
 \usepackage[absolute]{textpos}
 \usepackage{fancyhdr}
 \usepackage{titlesec}
@@ -14,9 +14,12 @@
 \usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
 \usepackage{xargs}                
 \usepackage{menukeys}
+\usepackage{colortbl}
+\usepackage{xcolor}
+\usepackage{etoolbox}
+\usepackage{hyperref}
 
 % Need to redefine pagestyle for chapter directives
-\usepackage{etoolbox}
 \patchcmd{\chapter}{\thispagestyle{plain}}{\thispagestyle{fancy}}{}{}
 
 % Global pagestyle
@@ -108,6 +111,8 @@
 	\hl{\textit{#1}}
 }
 
+\newcommand\nl{\leavevmode \newline}
+
 % Comment commands
 \newcommandx{\unsure}[2][1=]{\todo[linecolor=red,backgroundcolor=red!25,bordercolor=red,#1]{#2}}
 \newcommandx{\change}[2][1=]{\todo[linecolor=blue,backgroundcolor=blue!25,bordercolor=blue,#1]{#2}}
@@ -115,3 +120,4 @@
 \newcommandx{\improvement}[2][1=]{\todo[linecolor=Plum,backgroundcolor=Plum!25,bordercolor=Plum,#1]{#2}}
 \newcommandx{\remind}[2][1=]{\todo[linecolor=Yellow,backgroundcolor=Yellow!25,bordercolor=Yellow,#1]{#2}}
 \newcommandx{\noshow}[2][1=]{\todo[disable,#1]{#2}}
+
