@@ -18,6 +18,7 @@
 \usepackage{xcolor}
 \usepackage{etoolbox}
 \usepackage{hyperref}
+\usepackage{cooltooltips}
 
 % Need to redefine pagestyle for chapter directives
 \patchcmd{\chapter}{\thispagestyle{plain}}{\thispagestyle{fancy}}{}{}
@@ -122,3 +123,10 @@
 \newcommandx{\remind}[2][1=]{\todo[linecolor=Yellow,backgroundcolor=Yellow!25,bordercolor=Yellow,#1]{#2}}
 \newcommandx{\noshow}[2][1=]{\todo[disable,#1]{#2}}
 
+\newcommand\ttip[3]{
+	\cooltooltip[0 0 1]{#1}{#2}{}{}{#3\strut} 
+}
+
+\newcommand\apid[1]{
+	\ttip{API}{#1}{API Details}
+}
