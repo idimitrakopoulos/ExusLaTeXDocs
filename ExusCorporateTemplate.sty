@@ -19,6 +19,8 @@
 \usepackage{etoolbox}
 \usepackage{hyperref}
 \usepackage{cooltooltips}
+\usepackage{MnSymbol}
+\let\mathdollar\relax 
 
 % Need to redefine pagestyle for chapter directives
 \patchcmd{\chapter}{\thispagestyle{plain}}{\thispagestyle{fancy}}{}{}
@@ -127,6 +129,11 @@
 	\cooltooltip[0 0 1]{#1}{#2}{}{}{#3\strut} 
 }
 
+% API Details Popup
 \newcommand\apid[1]{
-	\ttip{API}{#1}{API Details}
+	\ttip{API}{#1}{\meddiamond}
+}
+% API missing popup
+\newcommand\apim{
+	\ttip{API}{API details haven't been specified}{\hl{\filledstar}}
 }
